@@ -6,10 +6,11 @@ const PORT = process.env.PORT || 2121;
 
 const app: Application = express();
 
+app.use(express.json());
 
 app.use('/api/v1/cars', carRoutes);
 
-app.use(express.json());
+
 
 app.use((req, _res, next) => {  
     console.log(`${req.method} ${req.originalUrl}`);
