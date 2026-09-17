@@ -1,8 +1,15 @@
 import express, {Application, Request, Response} from "express" ;
+//import userRoutes from './routes/';
+import carRoutes from './routes/cars';
 
 const PORT = process.env.PORT || 2121;
 
 const app: Application = express();
+
+
+app.use('/api/v1/cars', carRoutes);
+
+app.use(express.json());
 
 app.use((req, _res, next) => {  
     console.log(`${req.method} ${req.originalUrl}`);
